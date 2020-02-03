@@ -2,8 +2,18 @@ package stack;
 
 public class ListStack {
 
-  Node top;
+  class Node {
 
+    Node next;
+    int data;
+
+    Node(int data) {
+      this.data = data;
+      next = null;
+    }
+  }
+
+  Node top;
   ListStack() {
     this.top = null;
   }
@@ -51,14 +61,22 @@ public class ListStack {
     return top == null;
   }
 
-  class Node {
+  public static void main(String[] args) {
+    ListStack listStack = new ListStack();
+    listStack.push(10);
+    listStack.push(20);
+    listStack.push(30);
+    listStack.push(40);
+    listStack.push(60);
 
-    Node next;
-    int data;
-
-    Node(int data) {
-      this.data = data;
-      next = null;
-    }
+    listStack.display();
+    System.out.println();
+    System.out.println(listStack.peek());
+    listStack.peek();
+    System.out.println();
+    listStack.display();
+    listStack.pop();
+    System.out.println();
+    listStack.display();
   }
 }
