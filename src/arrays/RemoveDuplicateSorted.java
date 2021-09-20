@@ -2,7 +2,7 @@ package arrays;
 
 import java.util.Arrays;
 
-public class RemoveDuplicateSortedArray {
+public class RemoveDuplicateSorted {
     public static void main(String[] args) {
         int[] arr = {10,20,20,30,30,30,40};
         int res1 = naiveSolution(arr);

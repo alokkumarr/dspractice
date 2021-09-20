@@ -1,6 +1,6 @@
 package stack;
 
-// With an effiecient space
+// With an efficient space
 public class TwoStack {
 
   int arr[];
@@ -57,6 +57,4 @@ public class TwoStack {
       return 0;
     }
   }
-
-
 }

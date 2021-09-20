@@ -1,58 +1,68 @@
 package tree;
 
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class LevelOrderTraversal {
 
+  public static void main(String[] args) {
+    /**
+     *        10
+     *     /     \
+     *    20     30
+     *   /  \    / \
+     *  40   50 60  70
+     */
+    Node root = new Node(10);
+    root.left = new Node(20);
+    root.right = new Node(30);
+    root.left.left = new Node(40);
+    root.left.right = new Node(50);
+    root.right.left = new Node(60);
+    root.right.right = new Node(70);
 
-  void printLevelOrder(Node1 root){
+    printLevelOrderLineByLine(root);
+  }
 
-    Queue<Node1> queue = new PriorityQueue<>();
+  static void printLevelOrder(Node root){
+    if (root == null) return;
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
 
-    Node1 tempNode = root;
+    while (!queue.isEmpty()) {
+      Node tmp = queue.poll();
+      System.out.print(tmp.data + "->");
+      if (tmp.left != null) {
+        queue.add(tmp.left);
+      }
 
-    while (tempNode != null){
-      // print the data
-      System.out.println(tempNode.data);
-
-      // enqueue the children (fist left then right)
-      queue.add(tempNode.left);
-      queue.add(tempNode.right);
-
-      // deque a node from queue and assign to temp node
-      tempNode = queue.poll();
+      if (tmp.right != null){
+        queue.add(tmp.right);
+      }
     }
   }
 
-}
 
-class Node1 {
-  Object data;
-  Node1 left;
-  Node1 right;
+  // even it has two loops but the complexity is O(n)
+  // because we are adding and removing the queue
+  static void printLevelOrderLineByLine(Node root){
+    if (root == null) return;
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
 
-  public Object getData() {
-    return data;
-  }
+    while (!queue.isEmpty()) {
+      int count = queue.size();
+      for (int i = 0; i < count; i++) {
+        count--;
+        Node tmp = queue.poll();
+        assert tmp != null;
+        if (i == 0)
+        System.out.print(tmp.data + " ");
 
-  public void setData(Object data) {
-    this.data = data;
-  }
-
-  public Node1 getLeft() {
-    return left;
-  }
-
-  public void setLeft(Node1 left) {
-    this.left = left;
-  }
-
-  public Node1 getRight() {
-    return right;
-  }
-
-  public void setRight(Node1 right) {
-    this.right = right;
+        if (tmp.left != null) queue.add(tmp.left);
+        if (tmp.right != null) queue.add(tmp.right);
+      }
+      System.out.println();
+    }
   }
 }

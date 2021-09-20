@@ -1,18 +1,6 @@
 package stack;
 
 public class ListStack {
-
-  class Node {
-
-    Node next;
-    int data;
-
-    Node(int data) {
-      this.data = data;
-      next = null;
-    }
-  }
-
   Node top;
   ListStack() {
     this.top = null;
@@ -20,7 +8,6 @@ public class ListStack {
 
   public void push(int x) {
     Node temp = new Node(x);
-
     if (temp == null) {
       System.out.print("\nHeap Overflow");
       return;
@@ -80,3 +67,4 @@ public class ListStack {
     listStack.display();
   }
 }
+

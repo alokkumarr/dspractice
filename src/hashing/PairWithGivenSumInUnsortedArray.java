@@ -1,6 +1,8 @@
 package hashing;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class PairWithGivenSumInUnsortedArray {
@@ -15,11 +17,12 @@ public class PairWithGivenSumInUnsortedArray {
 
     private static boolean checkValidPair(int[] arr, int k) {
         Set<Integer> set = new HashSet<>();
-        for (int data : arr) {
-            if (set.contains(k-data)) {
+        for (int i = 0; i < arr.length; i++) {
+            if (set.contains(k-arr[i])) {
+
                 return true;
             }
-            set.add(data);
+            set.add(arr[i]);
         }
         return false;
     }
@@ -36,5 +39,18 @@ public class PairWithGivenSumInUnsortedArray {
 
 
         return false;
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        int[] res = new int[2];
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+            if(map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
+            }
+            map.put(nums[i], i);
+        }
+        return res;
     }
 }
