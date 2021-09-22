@@ -30,7 +30,7 @@ public class InsertBinarySearchTree {
         } else if (root.data > k) {
             root.left =  insertRec(root.left, k);
         } else if(root.data < k){
-            root.right =   insertRec(root.right, k);
+            root.right =  insertRec(root.right, k);
         }
         return root;
     }
