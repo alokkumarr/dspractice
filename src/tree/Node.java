@@ -1,18 +1,18 @@
 package tree;
 
 class Node {
-    Object data;
+    int data;
     Node left;
     Node right;
 
-    Node(Object data) {
+    Node(int data) {
         this.data = data;
     }
-    public Object getData() {
+    public int getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(int data) {
         this.data = data;
     }
 

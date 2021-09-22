@@ -33,10 +33,10 @@ public class ChildrenSumProperly {
         if (root.left == null && root.right == null) return true;
 
         int sum = 0;
-        if (root.left != null) sum = sum + Integer.parseInt(root.left.data.toString());
-        if (root.right != null) sum = sum + Integer.parseInt(root.right.data.toString());
+        if (root.left != null) sum = sum + root.left.data;
+        if (root.right != null) sum = sum + root.right.data;
 
-        return (Integer.parseInt(root.data.toString()) == sum)
+        return (root.data == sum)
                 && (sumProperly(root.left) && sumProperly(root.right));
   }
 }

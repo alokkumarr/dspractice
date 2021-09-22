@@ -1,6 +1,8 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class LeftViewOfTree {
@@ -25,10 +27,14 @@ public class LeftViewOfTree {
 
         int level = 1;
         leftViewOfTree(root);
+
+        System.out.println(leftViewOfTree(root));
     }
 
-    static void leftViewOfTree(Node root) {
-        if (root == null) return;
+    static ArrayList<Integer> leftViewOfTree(Node root) {
+        if (root == null) return new ArrayList<>();
+        ArrayList<Integer> res = new ArrayList<>();
+
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
@@ -38,15 +44,17 @@ public class LeftViewOfTree {
             for (int i = 0; i < n; ) {
                 Node temp = queue.poll();
                 if (i == 0)
-                    System.out.print(temp.data + " ");
+                    res.add(temp.data);
+                    //System.out.print(temp.data + " ");
                 assert temp != null;
-                if (temp.right != null)
-                    queue.add(temp.right);
                 if (temp.left != null)
                     queue.add(temp.left);
+                if (temp.right != null)
+                    queue.add(temp.right);
                 i++;
             }
         }
+        return res;
     }
 
     /**

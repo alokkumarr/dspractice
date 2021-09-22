@@ -26,7 +26,7 @@ public class MaxNodeOfTree {
 
 
 
-        return Math.max(Integer.parseInt(root.data.toString()),
+        return Math.max(root.data,
                 Math.max(maOfTree(root.left), maOfTree(root.right)));
     }
 }

@@ -17,7 +17,7 @@ public class TreeTraversalRec {
         postOrderTraversal(root);
     }
 
-    static void inorderTraversal(Node root){
+    public static void inorderTraversal(Node root){
         if (root != null) {
             inorderTraversal(root.left);
             System.out.print(root.data + " ");

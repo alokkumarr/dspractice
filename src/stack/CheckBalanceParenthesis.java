@@ -22,7 +22,6 @@ public class CheckBalanceParenthesis {
             char ch = str.charAt(i);
             if (ch == '(' || ch == '[' || ch == '{') {
                 stack.push(ch);
-                //System.out.println(stack);
             } else {
                 if (stack.isEmpty()) {
                     return false;
