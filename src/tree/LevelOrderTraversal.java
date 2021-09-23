@@ -34,33 +34,34 @@ public class LevelOrderTraversal {
       System.out.print(tmp.data + "->");
       if (tmp.left != null) {
         queue.add(tmp.left);
-      }
-
-      if (tmp.right != null){
+      } else if (tmp.right != null){
         queue.add(tmp.right);
       }
     }
   }
 
-
   // even it has two loops but the complexity is O(n)
   // because we are adding and removing the queue
   static void printLevelOrderLineByLine(Node root){
     if (root == null) return;
-    Queue<Node> queue = new LinkedList<>();
-    queue.add(root);
 
-    while (!queue.isEmpty()) {
-      int count = queue.size();
-      for (int i = 0; i < count; i++) {
-        count--;
-        Node tmp = queue.poll();
-        assert tmp != null;
-        if (i == 0)
-        System.out.print(tmp.data + " ");
+    Queue<Node> q = new LinkedList<>();
+    q.add(root);
+    while (!q.isEmpty()) {
+      int nodeCount= q.size();
 
-        if (tmp.left != null) queue.add(tmp.left);
-        if (tmp.right != null) queue.add(tmp.right);
+      // Dequeue all nodes of current level and Enqueue all
+      // nodes of next level
+
+      while(nodeCount > 0) {
+        Node node = q.poll();
+        assert node != null;
+        System.out.print(node.data + " ");
+        if(node.left != null)
+          q.add(node.left);
+        if(node.right != null)
+          q.add(node.right);
+        nodeCount--;
       }
       System.out.println();
     }

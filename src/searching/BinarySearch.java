@@ -10,7 +10,9 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] array = {10,20,30,40,50,60};
         int element = 30;
+
         System.out.println(Arrays.toString(array));
+
         int index = binaryRec(array, 0, array.length-1, element);
         System.out.println(index);
     }

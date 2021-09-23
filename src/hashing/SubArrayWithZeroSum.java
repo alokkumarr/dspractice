@@ -30,8 +30,8 @@ public class SubArrayWithZeroSum {
     private static boolean isSubArraySumZeroBestSol(int[] arr, int sum) {
         Set<Integer> set = new HashSet<>();
         int preSum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            preSum += arr[i];
+        for (int j : arr) {
+            preSum += j;
             if (set.contains(preSum)) return true;
             if (preSum == 0) return true;
             set.add(preSum);

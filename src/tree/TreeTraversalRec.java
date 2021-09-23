@@ -10,11 +10,11 @@ public class TreeTraversalRec {
         root.right.right = new Node(50);
 
         //System.out.println(root);
-        inorderTraversal(root);
+        inorderTraversal(root); // L -> Root - > R
         System.out.println("\n--------------");
-        preOrderTraversal(root);
+        preOrderTraversal(root); // Root -> L -> R
         System.out.println("\n--------------");
-        postOrderTraversal(root);
+        postOrderTraversal(root); // L -> R -> Root
     }
 
     public static void inorderTraversal(Node root){

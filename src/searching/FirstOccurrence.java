@@ -4,8 +4,9 @@ public class FirstOccurrence {
 
     public static void main(String[] args) {
         int[] array = {10,10,20,20,30,30,30,40,50};
-        int k = 50;
+        int k = 30;
         //int index = getFirstOccurrence(array, k);
+
         int index = getFirstOccRec(array, 0, array.length-1, k);
         System.out.println(index);
     }
@@ -28,7 +29,7 @@ public class FirstOccurrence {
 
 
     /**
-     * ~~O(n)
+     * ~O(n)
      * @param arr
      * @param k
      * @return

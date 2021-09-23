@@ -40,12 +40,12 @@ public class LeftViewOfTree {
         while (!queue.isEmpty()) {
             // number of nodes at current level
             int n = queue.size();
+
             // Traverse all nodes of current level
             for (int i = 0; i < n; ) {
                 Node temp = queue.poll();
                 if (i == 0)
                     res.add(temp.data);
-                    //System.out.print(temp.data + " ");
                 assert temp != null;
                 if (temp.left != null)
                     queue.add(temp.left);

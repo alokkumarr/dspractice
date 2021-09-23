@@ -10,6 +10,8 @@ public class PrintNodeKthDistance {
          *    20   30
          *   /  \
          *  40   50
+         *
+         *  O/P - > 20 30
          */
         Node root = new Node(10);
         root.left = new Node(20);
@@ -23,8 +25,9 @@ public class PrintNodeKthDistance {
     // aux space big o (h)
     static void printKthDistance(Node root, int k) {
         if (root == null) return;
-        if (k == 0) System.out.print(root.data + " ");
-        else {
+        if (k == 0) {
+            System.out.print(root.data + " ");
+        } else {
             printKthDistance(root.left, k - 1);
             printKthDistance(root.right, k - 1);
         }

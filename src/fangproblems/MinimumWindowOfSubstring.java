@@ -23,6 +23,8 @@ public class MinimumWindowOfSubstring {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
+
+
         int i = 0, j = 0, count = map.size();
         int left = 0, right = s.length()-1, min = s.length();
         boolean found = false;

@@ -2,7 +2,7 @@ package reccursion;
 
 public class StringPermutation {
     public static void main(String[] args) {
-        String s1 = "ABCD";
+        String s1 = "ABC";
         permute(s1, 0, s1.length()-1);
     }
 

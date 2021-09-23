@@ -4,9 +4,11 @@ import java.util.Arrays;
 
 public class BubbleSort {
 	public static void main(String[] args) {
-		int[] arr = {1,2,3,4,5,6,76};//{19,10,30,87,-2,23,54,28};
+		int[] arr = {19,10,30,87,-2,23,54,28};
+
 		int len = arr.length;
 		System.out.println(Arrays.toString(arr));
+
 		//bubbleSort(arr, len);
 		modifiedBubbleSort(arr, len);
 		System.out.println(Arrays.toString(arr));

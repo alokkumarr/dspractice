@@ -23,7 +23,7 @@ public class BalancedTree {
         root.left.right = new Node(9);
         root.right.right = new Node(7);
         root.left.left.left = new Node(10);
-        root.left.left.left.right = new Node(3);
+        //root.left.left.left.right = new Node(3);
 
         boolean have = isTreeBalancedBest(root) >= 0;
         System.out.println("isTreeBalanced : " +  have);

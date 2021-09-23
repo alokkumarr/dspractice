@@ -20,7 +20,50 @@ public class InsertBinarySearchTree {
         root.right.right = new Node(80);
         root.right.left.left = new Node(16);
 
+        /*
+          New BST
+                 15
+               /    \
+             5       20
+            /       /  \
+           3      18    80
+                 /     /
+                16    30
+         */
+        //Node newBST = insertRec(root, 30);
+        //traverse(newBST);
+        System.out.println();
+        traverse(insert(root, 30));
+    }
 
+    static void traverse(Node root) {
+        if (root == null) return;
+        traverse(root.left);
+        System.out.print(root.data + "->");
+        traverse(root.right);
+    }
+
+    static Node insert(Node root, int k) {
+        Node tmp = new Node(k);
+        if (root == null) {
+            return tmp;
+        }
+        Node cur = root;
+        Node trailing = null;
+        while (cur != null) {
+            trailing = cur;
+            if (cur.data > k) {
+                cur = cur.left;
+            } else {
+                cur = cur.right;
+            }
+        }
+        if (trailing.data > k) {
+            trailing.left = tmp;
+        } else {
+            trailing.right = tmp;
+        }
+        return root;
     }
 
     static Node insertRec(Node root, int k) {

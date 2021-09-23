@@ -36,7 +36,7 @@ public class CheckTreeIdentical {
         // if any of the null
         if (root1 == null || root2 == null) return false;
 
-        return root1.data==(root2.data)
+        return root1.data==root2.data
                 && isIdenticalTree(root1.left, root2.left)
                 && isIdenticalTree(root1.right, root2.right);
     }

@@ -7,16 +7,18 @@ public class IntersectionOfArray {
     public static void main(String[] args) {
         int[] arr1 = {10,20,10,20,30,4,5};
         int[] arr2 = {5,30,8,40,11,19};
+
+        // o/p - 2
         int result = getIntersectionByNaive(arr1, arr2, arr1.length, arr2.length);
         System.out.println("Naive solution : " + result);
-        int resultBest = getIntersectionByHash(arr1, arr2, arr1.length, arr2.length);
+        int resultBest = getIntersectionByHash(arr1, arr2);
         System.out.println("Best Solution : " + resultBest);
     }
 
 
     // O(m + n)
     // O(m)
-    private static int getIntersectionByHash(int[] arr1, int[] arr2, int length, int length1) {
+    private static int getIntersectionByHash(int[] arr1, int[] arr2) {
         int result = 0;
         Set<Integer> set = new HashSet<>();
         for (int data : arr1) {

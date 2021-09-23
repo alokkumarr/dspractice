@@ -4,13 +4,13 @@ public class DiameterOfTree {
 
     public static void main(String[] args) {
         /**
-         *        10
-         *     /     \
-         *    20     30
-         *   /  \    / \
-         *  40   50 60  70
+         *        1
+         *      /   \
+         *     2      3
+         *   /  \
+         *  4    5
          *
-         *  Output -> 10 20 30 40 50 60 70
+         *  Output -> 4
          */
         Node root = new Node(1);
         root.left = new Node(2);

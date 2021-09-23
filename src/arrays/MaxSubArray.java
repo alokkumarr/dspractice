@@ -2,13 +2,12 @@ package arrays;
 
 public class MaxSubArray {
     public static void main(String[] args) {
-        int[] a = {-5, 4, 6, -3, 4, -1};
+        int[] a = {-5, 4, 6, -3, -4, -1};
         System.out.println(maxSubArray(a));
     }
 
     private static int maxSubArray(int[] arr) {
         int maxSum = 0, curSum = 0 ;
-        int start = 0, end = 0;
         for (int j : arr) {
             curSum = curSum + j;
             if (curSum > maxSum) {

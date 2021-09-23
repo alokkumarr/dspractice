@@ -27,6 +27,7 @@ public class LongestContiguousArrayWithGivenSum {
         return res;
     }
 
+    //{3,9,2,-3,5,6,-1,4};
     private static int longestSubArraySumBest(int[] arr, int sum) {
         int res = 0;
         Map<Integer, Integer> map = new HashMap<>();

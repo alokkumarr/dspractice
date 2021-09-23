@@ -49,7 +49,6 @@ public class LastOccurrence {
                 l = mid + 1;
             }
         }
-
         return -1;
     }
 }

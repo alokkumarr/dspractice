@@ -2,6 +2,7 @@ package tree;
 
 public class MaxNodeOfTree {
 
+    // maximum value of the node
     public static void main(String[] args) {
         /**
          *        10
@@ -23,9 +24,6 @@ public class MaxNodeOfTree {
 
     static int maOfTree(Node root) {
         if(root == null) return  Integer.MIN_VALUE;
-
-
-
         return Math.max(root.data,
                 Math.max(maOfTree(root.left), maOfTree(root.right)));
     }

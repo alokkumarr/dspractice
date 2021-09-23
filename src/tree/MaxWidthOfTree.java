@@ -20,14 +20,13 @@ public class MaxWidthOfTree {
         root.left.left = new Node(40);
         root.left.left.left = new Node(9);
         root.left.left.right = new Node(7);
-
         root.left.right = new Node(50);
         root.left.right.right = new Node(5);
         root.right.right = new Node(60);
         root.right.left = new Node(3);
         root.right.right.right = new Node(70);
 
-        System.out.println("Is tree are same : " + maxWidthOfTree(root.right.right.right));
+        System.out.println("Max width of a tree : " + maxWidthOfTree(root));
     }
 
     static int maxWidthOfTree(Node root) {
