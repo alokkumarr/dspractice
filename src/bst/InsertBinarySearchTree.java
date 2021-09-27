@@ -30,8 +30,8 @@ public class InsertBinarySearchTree {
                  /     /
                 16    30
          */
-        //Node newBST = insertRec(root, 30);
-        //traverse(newBST);
+        Node newBST = insertRec(root, 30);
+        traverse(newBST);
         System.out.println();
         traverse(insert(root, 30));
     }

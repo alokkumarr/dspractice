@@ -1,9 +1,11 @@
 package arrays;
 
 public class MaxSubArray {
+
     public static void main(String[] args) {
-        int[] a = {-5, 4, 6, -3, -4, -1};
-        System.out.println(maxSubArray(a));
+        int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+        //{-5, 4, 6, -3, -4, -1};
+        System.out.println(maxSubArraySol2(a));
     }
 
     private static int maxSubArray(int[] arr) {
@@ -19,13 +21,13 @@ public class MaxSubArray {
     }
 
     private static int maxSubArraySol2(int[] arr) {
-        int maxEndHere = 0, maxSoFar = Integer.MIN_VALUE;
+        int maxEndHere = 0, result = Integer.MIN_VALUE;
         // [-2, -3, 4, -1, -2, 1, 5, -3]
         for (int j : arr){
             maxEndHere = maxEndHere + j;
-            if (maxEndHere < j) maxEndHere = j;
-            if (maxSoFar < maxEndHere) maxSoFar = maxEndHere;
+            maxEndHere = Math.max(maxEndHere, j);
+            result = Math.max(maxEndHere, result);
         }
-        return maxSoFar;
+        return result;
     }
 }
