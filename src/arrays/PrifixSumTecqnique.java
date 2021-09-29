@@ -10,7 +10,7 @@ public class PrifixSumTecqnique {
         //arr = new int[]{3, 4, 8, -9, 20, 6};
         arr = new int[]{2,1,-1};
         int point = findEquilibriumPoint(arr);
-        System.out.println("Equilibrium point : "+point);
+        System.out.println("Equilibrium point : " + point);
     }
 
     private static int prefixSum(int[] arr, int k) {
