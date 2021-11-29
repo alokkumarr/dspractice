@@ -38,10 +38,12 @@ public class MaxWidthOfTree {
 
         while (!q.isEmpty()) {
           int count = q.size();
-          for (int i =0; i < count; count--) {
+          for (int i = 0; i < count; count--) {
+
               res = Math.max(res, q.size());
               Node tmp = q.poll();
               assert tmp != null;
+
               if (tmp.left != null) q.add(tmp.left);
               if (tmp.right != null) q.add(tmp.right);
           }

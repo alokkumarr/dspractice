@@ -1,6 +1,6 @@
 package linklist;
 
-public class ReverseLinkList {
+public class ReverseLinkListRecurrsive {
     public static void main(String[] args) {
         Node head = new Node(10);
         Node temp1 = new Node(20);
@@ -10,22 +10,28 @@ public class ReverseLinkList {
         temp2.next = new Node(40);
 
         traverse(head);
-        Node newList = reverseLinkList(head);
+        Node newList = reverseLinkList(head,null);
         System.out.println();
         traverse(newList);
     }
 
+    private static Node reverseLinkList(Node curr, Node prev) {
+        if (curr == null) return prev;
+        Node next = curr.next;
+        curr.next = prev;
+        return reverseLinkList(next, curr);
+
+    }
     private static Node reverseLinkList(Node head) {
-        if (head == null) return null;
-        Node prev = null;
-        Node curr = head;
-        while (curr != null) {
-            Node next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
+        if (head == null || head.next == null)
+            return head;
+
+        Node restHead = reverseLinkList(head.next);
+        Node newTail = head.next;
+        newTail.next=head;
+        head.next=null;
+
+        return restHead;
     }
 
 
@@ -33,10 +39,5 @@ public class ReverseLinkList {
         if (head == null) return;
         System.out.print(head.data + " -> ");
         traverse(head.next);
-        /*Node curr = head;
-        while (curr != null) {
-            System.out.print(curr.data + " -> ");
-            curr = curr.next;
-        }*/
     }
 }

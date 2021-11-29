@@ -28,7 +28,8 @@ public class WindowSlidingProblem {
 
 
     /*
-     This technique only work for Non negative number
+     This technique only work for non-Negative number
+     O(n)
      */
     private static boolean windowSlidingForNonNegative(int[] arr, int target) {
         int start = 0, currSum = arr[0];

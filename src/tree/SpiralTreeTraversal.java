@@ -12,7 +12,7 @@ public class SpiralTreeTraversal {
          *   /  \    / \
          *  40   50 60  70
          *
-         *  Output -> 10 20 30 40 50 60 70
+         *  Output -> 10 30 20 40 50 60 70
          */
         Node root = new Node(10);
         root.left = new Node(20);

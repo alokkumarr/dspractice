@@ -16,7 +16,7 @@ public class SizeOfTree {
         root.left.left = new Node(40);
         root.left.right = new Node(50);
         root.right.left = new Node(60);
-        //root.right.right = new Node(70);
+        root.right.right = new Node(70);
 
         System.out.println("Size of tree : " + sizeOfTree(root));
     }

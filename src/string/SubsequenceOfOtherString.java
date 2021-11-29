@@ -4,8 +4,8 @@ public class SubsequenceOfOtherString {
 
     public static void main(String[] args) {
         String str1 = "geeksforgeeks";
-        String str2 = "grges";
-        System.out.println(subSequences(str1, str2));
+        String str2 = "grgtes";
+        System.out.println(isSubSequence(str1, str2, str1.length()-1, str2.length()-1));
     }
 
     // O (m+n)
@@ -20,5 +20,15 @@ public class SubsequenceOfOtherString {
             }
         }
         return (j == m);
+    }
+
+    static boolean isSubSequence(String st1, String str2, int m, int n) {
+        if (n == 0) return true;
+        if (m == 0) return false;
+        if (st1.charAt(m) == str2.charAt(n)) {
+            return isSubSequence(st1, str2, m-1, n-1);
+        } else {
+            return isSubSequence(st1, str2, m-1, n);
+        }
     }
 }

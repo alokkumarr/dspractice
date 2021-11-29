@@ -15,9 +15,10 @@ public class MajorityElement {
     private static int maxDifference(int[] arr) {
         int res = 0;
         int count = 1;
+
         // find the majority element
         for (int i = 1; i < arr.length; i++) {
-            if (arr[1] == arr[i-1]) {
+            if (arr[i] == arr[i-1]) {
                 count++;
             } else {
                 count --;
@@ -29,14 +30,12 @@ public class MajorityElement {
             }
         }
 
-        // find the count
+        // find the actual count
         count = 0;
         for (int element : arr) {
             if (arr[res] == element) count++;
         }
-
         if (count < arr.length/2) return -1;
-
         return res;
     }
 }

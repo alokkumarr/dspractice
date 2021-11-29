@@ -55,12 +55,13 @@ public class LevelOrderTraversal {
 
       while(nodeCount > 0) {
         Node node = q.poll();
-        assert node != null;
         System.out.print(node.data + " ");
+
         if(node.left != null)
           q.add(node.left);
         if(node.right != null)
           q.add(node.right);
+
         nodeCount--;
       }
       System.out.println();

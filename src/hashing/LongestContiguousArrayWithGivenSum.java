@@ -13,6 +13,7 @@ public class LongestContiguousArrayWithGivenSum {
         System.out.println("Maximum length with best solution : " + length);
     }
 
+    // O(n^2)
     private static int  longestSubArraySumNaive(int[] arr, int sum) {
         int res = 0;
         for (int i = 0 ; i < arr.length; i++) {

@@ -8,6 +8,20 @@ public class MaxSubArray {
         System.out.println(maxSubArraySol2(a));
     }
 
+    private static int maxSubArraySol2(int[] arr) {
+        int maxEndHere = 0;
+        int result = Integer.MIN_VALUE;
+        for (int i : arr){
+            maxEndHere = Math.max(maxEndHere + i, i);
+            result = Math.max(maxEndHere, result);
+        }
+        return result;
+    }
+
+
+
+
+
     private static int maxSubArray(int[] arr) {
         int maxSum = 0, curSum = 0 ;
         for (int j : arr) {
@@ -20,14 +34,4 @@ public class MaxSubArray {
         return maxSum;
     }
 
-    private static int maxSubArraySol2(int[] arr) {
-        int maxEndHere = 0, result = Integer.MIN_VALUE;
-        // [-2, -3, 4, -1, -2, 1, 5, -3]
-        for (int j : arr){
-            maxEndHere = maxEndHere + j;
-            maxEndHere = Math.max(maxEndHere, j);
-            result = Math.max(maxEndHere, result);
-        }
-        return result;
-    }
 }

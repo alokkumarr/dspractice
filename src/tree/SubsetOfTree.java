@@ -41,7 +41,7 @@ public class SubsetOfTree {
 
         if (isIdenticalTree(T, S)) return true;
 
-        return isSubsetOfTree(T.left, S) || isIdenticalTree(T.right, S);
+        return isSubsetOfTree(T.left, S) || isSubsetOfTree(T.right, S);
     }
 
 
