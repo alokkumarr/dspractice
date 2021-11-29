@@ -1,11 +1,11 @@
 package linklist;
 
-class DNode {
-    DNode prev;
-    DNode next;
+class DoubleNode {
+    DoubleNode prev;
+    DoubleNode next;
     int data;
 
-    DNode(int data) {
+    DoubleNode(int data) {
         this.data = data;
         prev = null;
         next = null;

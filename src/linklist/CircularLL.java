@@ -28,9 +28,31 @@ public class CircularLL {
         list = deleteAtStartBest(list);
         traverseCLL(list);
         System.out.print("\n-------------------------\n");
+
+        list = deleteAtKthPosition(list, 3);
+        traverseCLL(list);
+    }
+
+    // O(k) worst case O(n)
+    // 10->20->30->40->50->
+    static CCNode deleteAtKthPosition(CCNode head, int k) {
+        if (head == null || head.next == head) {
+            return null;
+        }
+        CCNode cur = head;
+        for (int i = 1; i < k-1; i++) {
+            cur = cur.next;
+        }
+
+        cur.next = cur.next.next;
+        return head;
     }
 
     //O(1)
+    // first the copy the data of next to head then delete next element in O(1)
+    //20->30->40->50
+    //30->30->40->50
+    // 30->40->50
     static CCNode deleteAtStartBest(CCNode head) {
         if (head == null || head.next == head) {
             return null;

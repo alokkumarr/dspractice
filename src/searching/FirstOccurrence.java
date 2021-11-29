@@ -29,7 +29,7 @@ public class FirstOccurrence {
 
 
     /**
-     * ~O(n)
+     * ~O(logn)
      * @param arr
      * @param k
      * @return

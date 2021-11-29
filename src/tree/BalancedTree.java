@@ -53,7 +53,9 @@ public class BalancedTree {
   }
 
     static int heightOfTree(Node root) {
-        if (root == null) return 0;
-        else return Math.max(heightOfTree(root.left), heightOfTree(root.right)) + 1;
+        if (root == null)
+            return 0;
+        else
+            return Math.max(heightOfTree(root.left), heightOfTree(root.right)) + 1;
     }
 }

@@ -3,30 +3,51 @@ package linklist;
 public class DoubleLList {
 
     public static void main(String[] args) {
-        DNode head = new DNode(10);
-        DNode tmp1 = new DNode(20);
-        DNode tmp2 = new DNode(30);
-        DNode tmp3 = new DNode(40);
+        DoubleNode head = new DoubleNode(10);
+        DoubleNode tmp1 = new DoubleNode(20);
+        DoubleNode tmp2 = new DoubleNode(30);
+        DoubleNode tmp3 = new DoubleNode(40);
 
         head.next = tmp1;
         tmp1.prev = head;
+
         tmp1.next = tmp2;
         tmp2.prev = tmp1;
+
         tmp2.next = tmp3;
         tmp3.prev = tmp2;
+
+        printDLL(head);
+        System.out.println();
+
+        DoubleNode newNode = insertAtStart(head, 20);
+        printDLL(newNode);
+        System.out.println();
+
+        printDLL(insertAtEnd(newNode, 90));
+        System.out.println();
     }
 
-    static DNode deleteAtStart(DNode head) {
+    static void printDLL(DoubleNode head) {
+        if (head == null) return;
+        DoubleNode curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " -> ");
+            curr = curr.next;
+        }
+    }
+
+    static DoubleNode deleteAtStart(DoubleNode head) {
         if (head == null || head.next == null) return null;
         head = head.next;
         head.prev = null;
         return head;
     }
 
-    static DNode deleteAtEnd(DNode head) {
+    static DoubleNode deleteAtEnd(DoubleNode head) {
         if (head == null || head.next == null) return null;
 
-        DNode cur = head;
+        DoubleNode cur = head;
         while (cur.next != null) {
             cur = cur.next;
         }
@@ -36,10 +57,10 @@ public class DoubleLList {
         return head;
     }
 
-    static DNode reverseDLL(DNode head) {
+    static DoubleNode reverseDLL(DoubleNode head) {
         if (head == null || head.next == null)
             return head;
-        DNode cur = head, prv = null;
+        DoubleNode cur = head, prv = null;
         while (cur != null){
 
         }
@@ -47,8 +68,8 @@ public class DoubleLList {
         return head;
     }
 
-    static DNode insertAtStart(DNode head, int data){
-        DNode tmp = new DNode(data);
+    static DoubleNode insertAtStart(DoubleNode head, int data){
+        DoubleNode tmp = new DoubleNode(data);
         tmp.next = head;
         if (head != null)
             head.prev = tmp;
@@ -56,12 +77,12 @@ public class DoubleLList {
         return tmp;
     }
 
-    static DNode insertAtEnd(DNode head, int data){
-        DNode tmp = new DNode(data);
+    static DoubleNode insertAtEnd(DoubleNode head, int data){
+        DoubleNode tmp = new DoubleNode(data);
         if (head == null) {
             return tmp;
         }
-        DNode cur = head;
+        DoubleNode cur = head;
         while (cur.next != null) {
             cur = cur.next;
         }

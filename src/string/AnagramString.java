@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class AnagramString {
 
   public static void main(String[] args) {
-    System.out.println(checkAnagram("alokas", "alokdd"));
+    System.out.println(checkAnagram("alokas", "alokas"));
   }
 
   final static int CHAR = 256;
