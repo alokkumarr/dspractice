@@ -22,8 +22,10 @@ public class TreeTraversalIterative {
         root.right.right = new Node(70);
 
         inOrderTraversal(root);
+        System.out.println();
         System.out.println("------------------------");
         preOrderTraversal(root);
+        System.out.println();
         System.out.println("------------------------");
         postOrderTraversal(root);
     }
@@ -44,8 +46,25 @@ public class TreeTraversalIterative {
         }
     }
 
+    // O(n)
     private static void postOrderTraversal(Node root) {
+        Stack<Node> st = new Stack<>();
+        while (true) {
+            while (root != null) {
+                st.push(root);
+                st.push(root);
+                root = root.left;
+            }
 
+            if (st.isEmpty()) return;
+            root = st.pop();
+            if (!st.isEmpty() && root == st.peek()) {
+                root = root.right;
+            } else {
+                System.out.print(root.data + " ");
+                root = null;
+            }
+        }
     }
 
     // O(n)

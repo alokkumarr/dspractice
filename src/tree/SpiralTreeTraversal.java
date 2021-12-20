@@ -40,8 +40,10 @@ public class SpiralTreeTraversal {
         System.out.println(s.zigzagLevelOrder(treeNode));
     }
 
+
     private static void spiralTraversalBestSol(Node root) {
         if (root == null) return;
+
         Stack<Node> s1 = new Stack<>();
         s1.push(root);
         Stack<Node> s2 = new Stack<>();
@@ -51,6 +53,7 @@ public class SpiralTreeTraversal {
                 Node tmp = s1.pop();
                 System.out.print(tmp.data + " ");
 
+                // push data in sq left then right
                 if (tmp.left != null) s2.push(tmp.left);
                 if (tmp.right != null) s2.push(tmp.right);
             }
@@ -59,6 +62,7 @@ public class SpiralTreeTraversal {
                 Node tmp = s2.pop();
                 System.out.print(tmp.data + " ");
 
+                // push data in sq right then left
                 if (tmp.right != null) s1.push(tmp.right);
                 if (tmp.left != null) s1.push(tmp.left);            }
         }

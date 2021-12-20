@@ -52,7 +52,6 @@ public class LevelOrderTraversal {
 
       // Dequeue all nodes of current level and Enqueue all
       // nodes of next level
-
       while(nodeCount > 0) {
         Node node = q.poll();
         System.out.print(node.data + " ");

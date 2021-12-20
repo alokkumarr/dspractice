@@ -2,13 +2,13 @@ package reccursion;
 
 public class StringPermutation {
     public static void main(String[] args) {
-        String s1 = "ABC";
+        String s1 = "ABCD";
         permute(s1, 0, s1.length()-1);
     }
 
     static private void permute(String str, int l, int r) {
         if (l == r)
-            System.out.print(str + ",");
+            System.out.print(str + " ");
         else {
             for (int i = l; i <= r; i++) {
                 str = swap(str,l,i);

@@ -39,20 +39,17 @@ public class LeftViewOfTree {
         queue.add(root);
         while (!queue.isEmpty()) {
             // number of nodes at current level
-            int n = queue.size();
+            int size = queue.size();
 
             // Traverse all nodes of current level
-            for (int i = 0; i < n; ) {
+            for (int i = 0; i < size; i++) {
                 Node temp = queue.poll();
-                if (i == n-1)
-                    res.add(temp.data);
-                assert temp != null;
+                if (i == 0) res.add(temp.data);
 
                 if (temp.left != null)
                     queue.add(temp.left);
                 if (temp.right != null)
                     queue.add(temp.right);
-                i++;
             }
         }
         return res;
@@ -67,8 +64,9 @@ public class LeftViewOfTree {
 
         if (maxLevel < level) {
             System.out.print(root.data + " ");
+            maxLevel = level;
         }
-        maxLevel++;
+
         leftViewOfTree(root.left, level+1);
         leftViewOfTree(root.right, level+1);
     }

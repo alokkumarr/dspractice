@@ -9,6 +9,8 @@ public class TransposeMatrix {
                 {13,14,15,16}
         };
 
+        System.out.println(arr.length);
+        System.out.println(arr[0].length);
         //O/P -  1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
         printTranspose(arr);
     }

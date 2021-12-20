@@ -2,17 +2,16 @@ package heap;
 
 import java.util.Arrays;
 
-public class MinHeap {
+public class MinHeapImplementation {
     int[] arr;
     int capacity;
     int size;
 
-    MinHeap(int c) {
+    MinHeapImplementation(int c) {
         arr = new int[c];
         size = 0;
         capacity = c;
     }
-
 
     void insert(int x) {
         if (capacity == size) return;
@@ -111,7 +110,7 @@ public class MinHeap {
 
     public static void main(String[] args) {
         //int[] arr = {10, 20, 15, 40, 50, 100, 25, 45};
-        MinHeap heap = new MinHeap(10);
+        MinHeapImplementation heap = new MinHeapImplementation(10);
         heap.insert(25);
         heap.insert(100);
         heap.insert(10);

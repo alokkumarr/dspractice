@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MaxWidthOfTree {
+
     public static void main(String[] args) {
         /*
                  10

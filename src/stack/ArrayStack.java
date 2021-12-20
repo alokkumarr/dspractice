@@ -1,8 +1,27 @@
 package stack;
 
 public class ArrayStack {
-  int arr[] = new int[10];
-  int top = -1;
+
+  public static void main(String[] args) {
+    ArrayStack as = new ArrayStack(12);
+    as.push(10);
+    as.push(23);
+    System.out.println(as.size());
+    System.out.println(as.peek());
+    as.pop();
+    System.out.println(as.size());
+    System.out.println(as.peek());
+  }
+
+  int[] arr;
+  int top;
+  int cap;
+
+  ArrayStack(int c) {
+    top = -1;
+    cap = c;
+    arr = new int[cap];
+  }
 
   public void push(int x) {
     if (top > arr.length ) {
@@ -12,6 +31,14 @@ public class ArrayStack {
 
     top = top + 1;
     arr[top] = x;
+  }
+
+  public int peek() {
+    if (top == -1) {
+      System.out.println("Underflow stack");
+      return -1;
+    }
+    return arr[top];
   }
 
   public int pop() {
@@ -34,4 +61,6 @@ public class ArrayStack {
   public int top() {
     return arr[top];
   }
+
+  public int size() {return top+1;};
 }

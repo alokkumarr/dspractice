@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CountTotalHeightForEveryNode {
+
     public static void main(String[] args) {
           /*
                  10    - 0
@@ -12,7 +13,7 @@ public class CountTotalHeightForEveryNode {
             /  \     / \
            40   50  10  60  - 2
 
-           Output = 8
+           Output = 10
          */
         Node root = new Node(10);
         root.left = new Node(20);
@@ -34,11 +35,10 @@ public class CountTotalHeightForEveryNode {
         int level = 0;
         while (!queue.isEmpty()) {
             int count = queue.size();
-            while (count -- > 0) {
-                Node tmp = queue.poll();
+            while (count > 0) {
+                count--;
                 totalCount += level;
-
-                assert tmp != null;
+                Node tmp = queue.poll();
                 if(tmp.left != null)
                     queue.add(tmp.left );
                 if (tmp.right != null)
