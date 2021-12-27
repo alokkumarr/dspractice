@@ -3,6 +3,7 @@ package tree;
 import java.util.ArrayList;
 
 public class SerializationDeserializationBST {
+
     static final int EMPTY = -1;
     void serializationBST(Node root, ArrayList<Integer> arr) {
         if (root == null) {

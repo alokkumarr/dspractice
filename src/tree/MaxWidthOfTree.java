@@ -24,8 +24,8 @@ public class MaxWidthOfTree {
         root.left.right = new Node(50);
         root.left.right.right = new Node(5);
         root.right.right = new Node(60);
-        root.right.left = new Node(3);
-        root.right.right.right = new Node(70);
+        //root.right.left = new Node(3);
+        //root.right.right.right = new Node(70);
 
         System.out.println("Max width of a tree : " + maxWidthOfTree(root));
     }

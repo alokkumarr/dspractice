@@ -27,7 +27,7 @@ public class CheckTreeIdentical {
         roo2.right = new Node(6);
         roo2.left.right = new Node(30);
 
-        System.out.println("Is tree are same :" + isIdenticalTree(roo1, roo2));
+        //System.out.println("Is tree are same :" + isIdenticalTree(roo1, roo2));
     }
 
     static boolean isIdenticalTree(Node root1, Node root2) {

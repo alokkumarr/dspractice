@@ -9,8 +9,20 @@ public class SubArrayWithZeroSum {
         int sum = 0;
         boolean haveSubArray = isSubArraySumZeroNaive(arr, sum);
         System.out.println("Subarray Exist by Naive : " + haveSubArray);
-        haveSubArray = isSubArraySumZeroBestSol(arr, sum);
+        haveSubArray = isSubArraySumZeroBestSol(arr);
         System.out.println("Subarray Exist : " + haveSubArray);
+    }
+
+    private static boolean isSubArraySumZeroBestSol(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        int preSum = 0;
+        for (int j : arr) {
+            preSum += j;
+            if (set.contains(preSum)) return true;
+            if (preSum == 0) return true;
+            set.add(preSum);
+        }
+        return false;
     }
 
     private static boolean isSubArraySumZeroNaive(int[] arr, int sum) {
@@ -27,15 +39,5 @@ public class SubArrayWithZeroSum {
         return false;
     }
 
-    private static boolean isSubArraySumZeroBestSol(int[] arr, int sum) {
-        Set<Integer> set = new HashSet<>();
-        int preSum = 0;
-        for (int j : arr) {
-            preSum += j;
-            if (set.contains(preSum)) return true;
-            if (preSum == 0) return true;
-            set.add(preSum);
-        }
-        return false;
-    }
+
 }
