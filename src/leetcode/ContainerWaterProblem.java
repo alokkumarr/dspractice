@@ -25,8 +25,10 @@ public class ContainerWaterProblem {
         while (left < right) {
             int lHeight = height[left];
             int rHeight = height[right];
+
             int minHeight = Math.min(lHeight, rHeight);
             int curArea = minHeight * (right - left);
+
             maxArea = Math.max(maxArea, curArea);
             if (lHeight < rHeight) left++;
             else right--;

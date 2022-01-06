@@ -8,7 +8,7 @@ import java.util.Queue;
 public class BFSGraph {
 
     public static void main(String[] args) {
-        List<ArrayList<Integer>> adj = new ArrayList<>();
+        List<List<Integer>> adj = new ArrayList<>();
         int vertex = 5;
         for (int i = 0; i < vertex; i++)
             adj.add(new ArrayList<>());
@@ -21,13 +21,14 @@ public class BFSGraph {
         addEdges(adj, 2, 4);
         addEdges(adj, 3, 4);
 
-        //printGraph(adj);
+        printGraph(adj);
 
         bfsSearch(adj, 0, vertex);
     }
 
-    static void bfsSearch(List<ArrayList<Integer>> adj, int sourceEdge, int V) {
-        boolean[] visited = new boolean[V];
+    static void bfsSearch(List<List<Integer>> adj, int sourceEdge, int V) {
+        boolean[] visited = new boolean[V+1];
+
         Queue<Integer> queue = new LinkedList<>();
         queue.add(sourceEdge);
         visited[sourceEdge] = true;
@@ -44,9 +45,9 @@ public class BFSGraph {
         }
     }
 
-    static void printGraph(List<ArrayList<Integer>> adj) {
+    static void printGraph(List<List<Integer>> adj) {
         int index = 0;
-        for (ArrayList<Integer> edge : adj) {
+        for (List<Integer> edge : adj) {
             System.out.print("Index " + index + ": ");
             for (int ver : edge) {
                 System.out.print(ver + " ");
@@ -56,8 +57,12 @@ public class BFSGraph {
         }
     }
 
-    static void addEdges(List<ArrayList<Integer>> adj, int u, int v) {
+    static void addEdges(List<List<Integer>> adj, int u, int v) {
         adj.get(u).add(v);
         adj.get(v).add(u);
     }
+
+
+
+
 }

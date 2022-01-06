@@ -14,7 +14,7 @@ public class GraphByList {
      */
     public static void main(String[] args) {
         int capacity = 4;
-        List<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>(capacity);
+        List<List<Integer>> adj = new ArrayList<>(capacity);
 
         for (int i = 0; i < capacity; i++)
             adj.add(new ArrayList<>());
@@ -27,18 +27,18 @@ public class GraphByList {
         printGraph(adj);
     }
 
-    static void printGraph(List<ArrayList<Integer>> adj) {
+    static void printGraph(List<List<Integer>> adj) {
         int index = 0;
         for (List<Integer> vertex : adj) {
             System.out.print("Index " + index + " : ");
-            for (Integer data : vertex) {
+            for (int data : vertex) {
                 System.out.print(data + "  ");
             }
             System.out.println();
             index++;
         }
     }
-    static void addEdge(List<ArrayList<Integer>> adj, int u, int v) {
+    static void addEdge(List<List<Integer>> adj, int u, int v) {
         adj.get(u).add(v);
         adj.get(v).add(u);
     }

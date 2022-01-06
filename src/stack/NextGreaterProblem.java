@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class NextGreaterProblem {
+
     public static void main(String[] args) {
         int[] stock = {60, 10, 20, 40, 35, 30, 50, 70, 65};
         printStockSpan(stock);

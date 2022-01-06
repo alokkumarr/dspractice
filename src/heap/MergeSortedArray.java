@@ -1,6 +1,7 @@
 package heap;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -38,7 +39,7 @@ public class MergeSortedArray {
 
         List<Integer> list4 = new ArrayList<>();
         list4.add(35);
-        list4.add(3);
+        list4.add(36);
         list4.add(248);
 
         list.add(list1);
@@ -57,22 +58,23 @@ public class MergeSortedArray {
         List<Integer> result = new ArrayList<>();
 
         // will use the priority queue to use the min heap data structure
-        PriorityQueue<Triplets> pq = new PriorityQueue<>();
+        PriorityQueue<Triplets> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.val));
 
         // add all the first element from the list of list in pq
-        for (int i = 0; i < list.size(); i++)
-            pq.add(new Triplets(list.get(i).get(0), i, 0));
+        for (int i = 0; i < list.size(); i++) {
+            Triplets pair = new Triplets(i, 0, list.get(i).get(0));
+            pq.add(pair);
+        }
 
         // now process the priority queue
         while (!pq.isEmpty()) {
-            Triplets curr = pq.poll();
-            result.add(curr.val);
+            Triplets pair = pq.poll();
+            result.add(pair.val);
+            pair.dataIndex++;
 
-            int ap = curr.aPass;
-            int vp = curr.vPass;
-
-            if (vp + 1 < list.get(ap).size()) {
-                pq.add(new Triplets(list.get(ap).get(vp+1), ap, vp +1));
+            if (pair.dataIndex < list.get(pair.listIndex).size()) {
+                pair.val = list.get(pair.listIndex).get(pair.dataIndex);
+                pq.add(pair);
             }
         }
         return result;
@@ -83,19 +85,14 @@ public class MergeSortedArray {
     This class will work as a node of the min heap which
      I will pass in the Priority queue.
  */
-class Triplets implements Comparable<Triplets> {
-    int val; // value
-    int aPass; // position of array
-    int vPass; // position of value in array
+class Triplets {
+    int listIndex;
+    int dataIndex;
+    int val;
 
-    Triplets(int val, int aPass, int vPass) {
+    Triplets(int listIndex, int dataIndex, int val) {
          this.val = val;
-         this.aPass = aPass;
-         this.vPass = vPass;
+         this.listIndex = listIndex;
+         this.dataIndex = dataIndex;
      }
-
-    @Override
-    public int compareTo(Triplets t) {
-        return (val < t.val) ? -1 : 1;
-    }
 }

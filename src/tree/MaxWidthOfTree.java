@@ -24,8 +24,8 @@ public class MaxWidthOfTree {
         root.left.right = new Node(50);
         root.left.right.right = new Node(5);
         root.right.right = new Node(60);
-        //root.right.left = new Node(3);
-        //root.right.right.right = new Node(70);
+        root.right.left = new Node(3);
+        root.right.right.right = new Node(70);
 
         System.out.println("Max width of a tree : " + maxWidthOfTree(root));
     }
@@ -39,15 +39,19 @@ public class MaxWidthOfTree {
 
         while (!q.isEmpty()) {
           int count = q.size();
-          for (int i = 0; i < count; count--) {
 
-              res = Math.max(res, q.size());
-              Node tmp = q.poll();
-              assert tmp != null;
 
-              if (tmp.left != null) q.add(tmp.left);
-              if (tmp.right != null) q.add(tmp.right);
-          }
+            while (count > 0) {
+                res = Math.max(res, q.size());
+
+                Node tmp = q.poll();
+                if (tmp.left != null)
+                    q.add(tmp.left);
+                if (tmp.right != null)
+                    q.add(tmp.right);
+
+                count --;
+            }
         }
         return res;
     }
