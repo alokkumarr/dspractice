@@ -21,7 +21,6 @@ public class FindMissingPositiveNumber {
                 arr[i] = 1;
             }
         }
-
         if (!isOneExist) return 1;
 
         // Step 2 - mark index value negative by element value
@@ -36,6 +35,4 @@ public class FindMissingPositiveNumber {
         }
         return n+1;
     }
-
-
 }
