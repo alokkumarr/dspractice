@@ -18,13 +18,10 @@ public class LeaderInAnArray {
 
     private static int bestSolution(int[] arr) {
         int res = 1;
-
         return res;
     }
 
     private static int naiveSolution(int[] arr) {
-
-
         return 0;
     }
 }
