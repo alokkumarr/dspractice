@@ -11,14 +11,17 @@ public class UnionOfTwoArray {
     private static void union(int[] a, int[] b) {
         int m = a.length, n = b.length, i =0, j=0;
         while (i < m && j< n) {
+            // Avoid duplicate comparision in first array
             if (i > 0 && a[i] == a[i - 1]) {
                 i++;
                 continue;
             }
+            // Avoid duplicate comparision in second array
             if (j > 0 && b[j] == b[j - 1]) {
                 j++;
                 continue;
             }
+
             if (a[i] < b[j]) {
                 System.out.print(a[i] + " ");
                 i++;
