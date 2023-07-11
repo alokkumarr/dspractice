@@ -19,7 +19,9 @@ public class Anagram {
         //check if m is gteater then no solution
         if (n != m) return false;
 
+        //
         int[] count = new int[26];
+
         for (int i = 0; i<n; i++) {
             count[s1.charAt(i)-'A']++;
             count[s2.charAt(i)-'A']--;
@@ -29,8 +31,6 @@ public class Anagram {
             if (count[i] != 0)
                 return false;
         }
-
-
         return true;
     }
 

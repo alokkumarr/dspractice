@@ -4,7 +4,7 @@ public class CheckStringIsSubsequenceOfOther {
 
     public static void main(String[] args) {
         String str = "ADBC";
-        String s1 = "AB";
+        String s1 = "BA";
 
         boolean res = isSolutionRecursive(str, s1, str.length()-1, s1.length()-1);
         System.out.println(res);
