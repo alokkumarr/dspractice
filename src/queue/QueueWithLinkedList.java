@@ -23,4 +23,5 @@ public class QueueWithLinkedList {
         front = front.next;
         if (front == null) rear = null;
     }
+
 }

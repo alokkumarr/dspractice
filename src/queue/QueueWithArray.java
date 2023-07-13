@@ -1,36 +1,48 @@
 package queue;
 
 public class QueueWithArray {
-    int size, capacity;
+
+    int size;
+    int capacity;
     int[] arr;
+    int front;
 
     QueueWithArray(int c) {
         capacity = c;
         size = 0;
+        front = 0;
         arr = new int[capacity];
     }
 
     public void enqueue(int x) {
-        if (isFull()) return;
-        arr[size] = x;
+        if (isFull())  {
+            System.out.println("Overflow !");
+            return;
+        }
+        int rear = getRear();
+        rear = (rear+1) % capacity;
+        arr[rear] = x;
         size++;
     }
 
     public void dequeue() {
-        if (size == 0) return;
-        for (int i = 0; i < arr.length; i++)
-            arr[i] = arr[i+1];
+        if (isEmpty()) return;
+        front = (front+1) % capacity;
         size--;
     }
 
-    public int getFront(int x) {
-        if (isEmpty()) return -1;
-        return arr[0];
+    public int getFront() {
+        if (isEmpty())
+            return -1;
+        else
+            return front;
     }
 
-    public int getRear(int x) {
-        if (size == 0) return -1;
-        return arr[size-1];
+    public int getRear() {
+        if (size == 0)
+            return -1;
+        else
+            return (front+size-1) % capacity;
     }
 
     boolean isFull() {
@@ -41,7 +53,19 @@ public class QueueWithArray {
         return size == 0;
     }
 
-    int size() {
-        return size;
+    public static void main(String[] args) {
+        QueueWithArray queue = new QueueWithArray(6);
+
+        queue.enqueue(10);
+        queue.enqueue(13);
+        queue.enqueue(16);
+        queue.enqueue(20);
+        queue.enqueue(14);
+        queue.enqueue(19);
+        System.out.println(queue.isEmpty());
+        queue.enqueue(111);
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println(queue.getFront());
     }
 }

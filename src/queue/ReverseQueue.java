@@ -21,15 +21,22 @@ public class ReverseQueue {
 
     private static Queue<Integer> reverseQueue(Queue<Integer> queue) {
         Stack<Integer> stack = new Stack<>();
-        while (!queue.isEmpty())
+
+        while (!queue.isEmpty()) {
             stack.push(queue.poll());
-                while (!stack.isEmpty())
+        }
+
+        while (!stack.isEmpty()) {
             queue.add(stack.pop());
-               return queue;
+        }
+
+        return queue;
     }
 
+    // first make queue empty by removing element then call rec function then add back the items.
     private static void reverseQueueRec(Queue<Integer> queue) {
-        if (queue.isEmpty()) return;
+        if (queue.isEmpty())
+            return;
         int tmp = queue.poll();
         reverseQueue(queue);
         queue.add(tmp);

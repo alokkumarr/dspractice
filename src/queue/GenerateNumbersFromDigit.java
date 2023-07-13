@@ -1,6 +1,10 @@
 package queue;
 
-import java.util.*;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Queue;
+import java.util.LinkedList;
+
 
 public class GenerateNumbersFromDigit {
     public static void main(String[] args) {
