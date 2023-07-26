@@ -1,9 +1,9 @@
-package bst;
+package binarysearchtree;
 
 public class InsertBinarySearchTree {
     public static void main(String[] args) {
         /*
-          A tree is balanced when its left or right tree diff is 0 or 1.
+          A tree is balanced when its left or right tree height diff is 0 or 1.
                  15
                /    \
              5       20
@@ -30,8 +30,7 @@ public class InsertBinarySearchTree {
                  /     /
                 16    30
          */
-        Node newBST = insertRec(root, 30);
-        traverse(newBST);
+        traverse(insertRec(root, 30));
         System.out.println();
         traverse(insert(root, 30));
     }
@@ -44,24 +43,29 @@ public class InsertBinarySearchTree {
     }
 
     static Node insert(Node root, int k) {
+        // create a temp root
         Node tmp = new Node(k);
+
         if (root == null) {
             return tmp;
         }
+
         Node cur = root;
-        Node trailing = null;
+
+        Node parent = null;
         while (cur != null) {
-            trailing = cur;
+            parent = cur;
             if (cur.data > k) {
                 cur = cur.left;
             } else {
                 cur = cur.right;
             }
-        }
-        if (trailing.data > k) {
-            trailing.left = tmp;
+        } // end of wile loop, found the position where element to be inserted
+
+        if (parent.data > k) {
+            parent.left = tmp;
         } else {
-            trailing.right = tmp;
+            parent.right = tmp;
         }
         return root;
     }

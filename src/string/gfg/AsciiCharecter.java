@@ -3,16 +3,16 @@ package string.gfg;
 public class AsciiCharecter {
     public static void main(String[] args) {
         int c = 'a';
-        //System.out.println("a -> " + c);
+        System.out.println("a -> " + c);
         c = 'z';
-        //System.out.println("z -> " + c);
+        System.out.println("z -> " + c);
         c = 'A';
-        //System.out.println("A -> " + c);
+        System.out.println("A -> " + c);
         c = 'Z';
-        //System.out.println("Z -> " + c);
+        System.out.println("Z -> " + c);
 
         String str = "geeksforgeeks";
-        int[] count = new int[26];
+        int[] count = new int[256];
 
         for (int i = 0; i < str.length(); i++) {
             count[str.charAt(i) - 'a'] += 1;

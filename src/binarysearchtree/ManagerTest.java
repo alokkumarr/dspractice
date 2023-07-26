@@ -1,4 +1,4 @@
-package bst;
+package binarysearchtree;
 
 import java.util.TreeMap;
 import java.util.TreeSet;

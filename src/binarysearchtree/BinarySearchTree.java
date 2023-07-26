@@ -1,6 +1,7 @@
-package bst;
+package binarysearchtree;
 
 public class BinarySearchTree {
+
     public static void main(String[] args) {
         /*
           A tree is balanced when its left or right tree diff is 0 or 1.
@@ -20,7 +21,7 @@ public class BinarySearchTree {
         root.right.right = new Node(80);
         root.right.left.left = new Node(16);
 
-        int k = 18;
+        int k = 118;
         boolean haveElement = searchNaive(root, k);
         System.out.println(haveElement);
     }
@@ -50,5 +51,12 @@ public class BinarySearchTree {
             }
         }
         return false;
+    }
+
+    public static void traverse(Node root) {
+        if (root == null) return;
+        traverse(root.left);
+        System.out.print(root.data + "->");
+        traverse(root.right);
     }
 }
