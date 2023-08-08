@@ -2,7 +2,7 @@ package reccursion;
 
 public class PalinromeString {
     public static void main(String[] args) {
-        String str = "abac";
+        String str = "abbbba";
         boolean isPalindrome = checkPalindrome(str);
         System.out.println(isPalindrome);
     }

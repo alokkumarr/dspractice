@@ -8,7 +8,8 @@ public class SumOfDigit {
     }
 
     private static int fun(int n) {
-       if(n == 0) return 0;
+       if(n == 0)
+           return 0; // base case
 
        return n % 10 + fun(n/10);
     }
